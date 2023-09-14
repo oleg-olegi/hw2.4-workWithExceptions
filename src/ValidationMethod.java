@@ -4,17 +4,16 @@ import java.util.Scanner;
 public class ValidationMethod {
 
     private static boolean validCharacter(String stringToCheck) {
-        boolean isValid;
         char[] charsArrayToCheck = stringToCheck.toCharArray();
         for (int i = 0; i < charsArrayToCheck.length; i++) {
             if (charsArrayToCheck[i] < 48 ||
                     charsArrayToCheck[i] > 57 && charsArrayToCheck[i] < 65 ||
                     charsArrayToCheck[i] > 90 && charsArrayToCheck[i] < 95 || charsArrayToCheck[i] == 96 ||
                     charsArrayToCheck[i] > 122) {
-                return isValid = false;
+                return false;
             }
         }
-        return isValid = true;
+        return true;
     }
 
     private static void checkLogin(String login) throws WrongLoginException {
@@ -73,8 +72,8 @@ public class ValidationMethod {
             System.out.println("Error " + passwordException.getMessage());
         } finally {
             System.out.println("Validation completed");
+            scanner.close();
         }
-        scanner.close();
     }
 }
 
